@@ -1,0 +1,26 @@
+[
+  {
+    "employee_id": "",
+    "employee_name": "",
+    "designation": "",
+    "experience": "",
+    "email": "",
+    "skills": ["skill_id", "skill_id"]
+  },
+  {
+    "employee_id": "",
+    "employee_name": "",
+    "designation": "",
+    "experience": "",
+    "email": "",
+    "skills": ["skill_id", "skill_id"]
+  },
+  {
+    "employee_id": "",
+    "employee_name": "",
+    "designation": "",
+    "experience": "",
+    "email": "",
+    "skills": ["skill_id", "skill_id"]
+  }
+]
