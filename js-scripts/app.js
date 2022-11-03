@@ -1,3 +1,4 @@
+
 // localStorage.clear();
 const getTableData = () => {
     fetch('json-files/employee_details.json')
@@ -85,6 +86,7 @@ function listTables() {
 
 
 
+
 function addModalBox() {
     const modal = document.querySelector("#add-modal")
     const addBtn = document.querySelector("#add-button")
@@ -110,7 +112,9 @@ function addModalBox() {
     window.addEventListener("click", (event) => {
         event.target == modal && (modal.style.display = "none");
     });
+
     document.querySelector("#submit-add-btn").addEventListener('click', addEmployees);
+
 }
 
 addModalBox()
@@ -128,7 +132,9 @@ function updateModalBox() {
         });
     });
     closeBtn.addEventListener("click", () => {
+
         modal.style.display = "none";
+
     });
     submitBtn.addEventListener("click", () => {
         modal.style.display = "none";
@@ -144,6 +150,7 @@ function updateModalBox() {
 }
 updateModalBox()
 
+
 deleteMsgBox()
 
 function deleteMsgBox() {
@@ -155,8 +162,10 @@ function deleteMsgBox() {
     deleteBtn.forEach(item => {
         item.addEventListener("click", () => {
             modal.style.display = "block";
+
             let id = item.getAttribute("data-id")
             deleteEmployee(id);
+
         });
     });
     closeBtn.addEventListener("click", () => {
@@ -339,3 +348,4 @@ function deleteEmployee(id) {
         });
     })
 }
+

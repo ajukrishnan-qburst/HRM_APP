@@ -570,7 +570,6 @@ h6 {
   font-family: "pop-bold";
   margin: 0 auto;
   padding: 10px 25px;
-  /* border-radius: 50px; */
 }
 
 .btn:hover {
@@ -590,22 +589,20 @@ h6 {
   text-decoration: none;
   cursor: pointer;
 }
+
 .form{
    display: flex;
   flex-direction: row-reverse;
   padding: 10px 10px;
 }
-/* .form :not(:last-child):after{
-  display: flex;
-  flex-direction: row-reverse;
-  padding: 10px 10px;
-} */
+
+
 
 .input-wrapper {
   display: grid;
   padding: 10px 5px 0px 5px;
   margin-top: 15px;
-}
+
 
 .modal-label {
   padding: 20px 10px;
@@ -658,6 +655,7 @@ h6 {
         5. HEADER SECTION
 --------------------------------------*/
 body {
+
   background-color: #b1570b2e;
 }
 
@@ -692,6 +690,7 @@ body {
 }
 
 .add {
+
   background-color: #003366;
   font-size: 25px;
   padding: 10px 10px;
@@ -700,6 +699,7 @@ body {
 }
 .add:hover{
   box-shadow: -1px 2px 5px 5px #FFFF00;
+
 }
 
 .sort-filter-container {
@@ -721,6 +721,7 @@ body {
   /* border-radius: 25px; */
   color: #000;
   font-family: "pop-normal";
+
 }
 
 .label {
@@ -784,13 +785,14 @@ table {
   text-align: center;
   background-color: #003366;
   color: #FFFF00;
-  font-family: "pop-normal";
-}
+
 
 .table tr:not(:first-child):hover {
   background-color: white;
   color: #000;
+
   font-size: large;
+
 }
 
 td {
@@ -832,7 +834,6 @@ td {
   background-color: rgb(0, 0, 0);
   background-color: rgba(0, 0, 0, 0.7);
 }
-
 
 /* ------------------------------UPDATE MODAL BOX------------------------------------ */
 
@@ -893,6 +894,7 @@ td {
   font-size: 70px;
   font-weight: 700;
   background-color: white;
+
 }
 
 .fa-xmark:hover {
@@ -904,6 +906,7 @@ td {
   font-size: 70px;
   font-weight: 700;
   background-color: white;
+
 }
 
 .fa-check:hover {
@@ -995,3 +998,4 @@ td {
   outline: none;
   border: 0;
 } 
+
