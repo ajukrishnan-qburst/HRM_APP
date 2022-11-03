@@ -1,0 +1,18 @@
+[
+  {
+    "skill_id": "1",
+    "skill_name": "React"
+  },
+  {
+    "skill_id": "2",
+    "skill_name": "PHP"
+  },
+  {
+    "skill_id": "3",
+    "skill_name": "Angular"
+  },
+  {
+    "skill_id": "4",
+    "skill_name": "Java"
+  }
+]
