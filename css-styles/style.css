@@ -570,7 +570,6 @@ h6 {
   font-family: "pop-bold";
   margin: 0 auto;
   padding: 10px 25px;
-  border-radius: 50px;
 }
 
 .btn:hover {
@@ -591,17 +590,19 @@ h6 {
   cursor: pointer;
 }
 
-.container {
-  display: flex;
+.form{
+   display: flex;
   flex-direction: row-reverse;
   padding: 10px 10px;
 }
 
+
+
 .input-wrapper {
   display: grid;
   padding: 10px 5px 0px 5px;
-  margin-top: 10px;
-}
+  margin-top: 15px;
+
 
 .modal-label {
   padding: 20px 10px;
@@ -612,13 +613,12 @@ h6 {
 .modal-input {
   width: 425px;
   height: 50px;
-  padding: 5px 10px;
-  margin-bottom: 15px;
+  padding: 5px 20px;
+  margin-bottom: 20px;
   line-height: 25px;
   font-size: 20px;
   font-family: "pop-normal";
   color: #000;
-  border-radius: 50px;
 }
 
 .modal-content {
@@ -654,7 +654,8 @@ h6 {
 /*-------------------------------------
         5. HEADER SECTION
 --------------------------------------*/
-#main-content {
+body {
+
   background-color: #b1570b2e;
 }
 
@@ -689,12 +690,16 @@ h6 {
 }
 
 .add {
-  background-color: gold;
+
+  background-color: #003366;
   font-size: 25px;
   padding: 10px 10px;
-  color: #000;
+  color: #FFFF00;
   font-family: "pop-bold";
-  border-radius: 50px;
+}
+.add:hover{
+  box-shadow: -1px 2px 5px 5px #FFFF00;
+
 }
 
 .sort-filter-container {
@@ -703,11 +708,20 @@ h6 {
 
 .sort-filter-container input {
   cursor: pointer;
-  padding: 10px 5px;
-  border-radius: 25px;
+  padding: 7px 8px;
+  /* border-radius: 25px; */
   color: #000;
   font-family: "pop-normal";
-  width: 250px;
+  width: 200px;
+}
+
+.sort-filter-container select {
+  cursor: pointer;
+  padding: 10px 5px;
+  /* border-radius: 25px; */
+  color: #000;
+  font-family: "pop-normal";
+
 }
 
 .label {
@@ -769,14 +783,16 @@ table {
 
 .table tr:not(:first-child) {
   text-align: center;
-  background-color: gray;
-  color: gold;
-  font-family: "pop-normal";
-}
+  background-color: #003366;
+  color: #FFFF00;
+
 
 .table tr:not(:first-child):hover {
   background-color: white;
   color: #000;
+
+  font-size: large;
+
 }
 
 td {
@@ -877,6 +893,8 @@ td {
 .fa-xmark {
   font-size: 70px;
   font-weight: 700;
+  background-color: white;
+
 }
 
 .fa-xmark:hover {
@@ -887,6 +905,8 @@ td {
 .fa-check {
   font-size: 70px;
   font-weight: 700;
+  background-color: white;
+
 }
 
 .fa-check:hover {
@@ -910,7 +930,6 @@ td {
   background-color: rgba(0, 0, 0, 0.7);
 }
 
-
 /* -------------------------------UPDATE BOX------------------------------------- */
 #update-box {
   display: none;
@@ -925,3 +944,58 @@ td {
   background-color: rgb(0, 0, 0);
   background-color: rgba(0, 0, 0, 0.7);
 }
+
+
+.container{
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.container::-webkit-scrollbar {
+  display: none;
+}
+
+.tag-container {
+ padding: 5px 5px;
+  border: 1px solid black;
+  width: 425px;
+  margin: 5px 0;
+  align-items: center;
+  background:#f2f2f2;
+  border-radius: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  
+}
+
+.tag{
+  border: 1px solid black;
+  margin: 5px;
+  align-items: center;
+  background:#f2f2f2;
+  border-radius: 5px;
+  display: flex;
+  cursor: pointer;
+
+}
+
+.tag span{
+    font-size:larger;
+    color: #000;
+    font-family: 700;
+}
+
+.close
+{
+  font-size: medium;
+    margin: 5px 5px;
+}
+
+.tag-container input{
+  flex:1;
+  font-size:19px;
+  padding:5px;
+  outline: none;
+  border: 0;
+} 
+
