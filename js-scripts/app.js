@@ -59,7 +59,7 @@ function skillDataList() {
     })
 }
 
-
+skillDataList();
 
 // =============================== LISTING THE JSON DATA INTO TABLE =======================================================
 function listTables() {
