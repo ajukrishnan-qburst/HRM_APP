@@ -589,20 +589,17 @@ h6 {
   text-decoration: none;
   cursor: pointer;
 }
-
 .form{
    display: flex;
   flex-direction: row-reverse;
   padding: 10px 10px;
 }
 
-
-
 .input-wrapper {
   display: grid;
   padding: 10px 5px 0px 5px;
   margin-top: 15px;
-
+}
 
 .modal-label {
   padding: 20px 10px;
@@ -655,7 +652,6 @@ h6 {
         5. HEADER SECTION
 --------------------------------------*/
 body {
-
   background-color: #b1570b2e;
 }
 
@@ -690,7 +686,6 @@ body {
 }
 
 .add {
-
   background-color: #003366;
   font-size: 25px;
   padding: 10px 10px;
@@ -699,7 +694,6 @@ body {
 }
 .add:hover{
   box-shadow: -1px 2px 5px 5px #FFFF00;
-
 }
 
 .sort-filter-container {
@@ -709,7 +703,6 @@ body {
 .sort-filter-container input {
   cursor: pointer;
   padding: 7px 8px;
-  /* border-radius: 25px; */
   color: #000;
   font-family: "pop-normal";
   width: 200px;
@@ -718,10 +711,8 @@ body {
 .sort-filter-container select {
   cursor: pointer;
   padding: 10px 5px;
-  /* border-radius: 25px; */
   color: #000;
   font-family: "pop-normal";
-
 }
 
 .label {
@@ -729,6 +720,7 @@ body {
   font-size: 25px;
   font-family: "pop-bold";
 }
+
 .datalist {
   cursor: pointer;
 }
@@ -781,18 +773,17 @@ table {
   border-right: 2px solid black;
 }
 
-.table tr:not(:first-child) {
+.table tr{
   text-align: center;
   background-color: #003366;
   color: #FFFF00;
+  font-family: "pop-normal";
+}
 
-
-.table tr:not(:first-child):hover {
+tbody tr:hover {
   background-color: white;
   color: #000;
-
   font-size: large;
-
 }
 
 td {
@@ -834,6 +825,7 @@ td {
   background-color: rgb(0, 0, 0);
   background-color: rgba(0, 0, 0, 0.7);
 }
+
 
 /* ------------------------------UPDATE MODAL BOX------------------------------------ */
 
@@ -894,7 +886,6 @@ td {
   font-size: 70px;
   font-weight: 700;
   background-color: white;
-
 }
 
 .fa-xmark:hover {
@@ -906,7 +897,6 @@ td {
   font-size: 70px;
   font-weight: 700;
   background-color: white;
-
 }
 
 .fa-check:hover {
@@ -946,6 +936,8 @@ td {
 }
 
 
+
+/* ------------------------------MULTISELECT SKILLS BOX ------------------------------- */
 .container{
   overflow-y: scroll;
   overflow-x: hidden;
@@ -997,5 +989,5 @@ td {
   padding:5px;
   outline: none;
   border: 0;
+  margin-bottom: 0px;
 } 
-
