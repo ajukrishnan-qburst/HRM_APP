@@ -21,14 +21,14 @@
                             class="fa-solid fa-plus"></i></button>
                 </div>
                 <div class="sort-filter-container">
-                    <form action="#" id="">
-                        <label for="sort-select" class="label">Sort:</label>
+                    <form action="#" id="" autocomplete="off">
+                        <label for="sort-select" class="label">Sort By:</label>
                         <select name="" id="sort-dropdown">
-                            <option value="1" selected="selected">By Employee Id</option>
-                            <option value="2">By Employee Name</option>
+                            <option value="1" selected="selected">Employee Id</option>
+                            <option value="2">Employee Name</option>
                         </select>
                         <label for="filter-select" class="label">Filter:</label>
-                        <input list="skills-dropdown" type="search" id="filter-select">
+                        <input list="skills-dropdown" type="search" id="filter-select" autofocus>
                         <datalist id="skills-dropdown" class="datalist">
                         </datalist>
                     </form>
@@ -39,14 +39,14 @@
             <section id="employee-table-container">
                 <table id="data-table" class="table">
                     <thead>
-<tr id="table-header">
-    <th id="employee_id" class="table-header">Employee Id</th>
-    <th id="employee_name" class="table-header">Employee Name</th>
-    <th id="designation" class="table-header">Designation</th>
-    <th id="email" class="table-header">Email</th>
-    <th id="skills" class="table-header">Skills</th>
-    <th id="actions" class="table-header">Actions</th>
-</tr>
+                        <tr id="table-header">
+                            <th id="employee_id" class="table-header">Employee Id</th>
+                            <th id="employee_name" class="table-header">Employee Name</th>
+                            <th id="designation" class="table-header">Designation</th>
+                            <th id="email" class="table-header">Email</th>
+                            <th id="skills" class="table-header">Skills</th>
+                            <th id="actions" class="table-header">Actions</th>
+                        </tr>
                     </thead>
                     
                     <tbody id="table-body-container">
@@ -61,7 +61,15 @@
                     <span class="close-btn"><i class="fa-solid fa-circle-xmark"></i></span>
                     <h2>Add Employee Details</h2>
                     <div id="input-label-container " class="container">
-                        <form action="#" id="add-form" class="form">
+                        <form action="#" id="add-form" class="form" autocomplete="off">
+                            <div id="add-label-wrapper" class="label-wrapper">
+                                <label for="id-input" class="add-label modal-label">Employee Id:</label>
+                                <label for="name-input" class="add-label modal-label">Employee Name:</label>
+                                <label for="designation-input" class="add-label modal-label">Designation:</label>
+                                <label for="experience-input" class="add-label modal-label">Experience:</label>
+                                <label for="email-input" class="add-label modal-label">Email:</label>
+                                <label for="skills-input" class="add-label modal-label">Skills:</label>
+                            </div>
                             <div id="add-input-wrapper" class="input-wrapper">
                                 <input type="text" id="id-input" class="add-input modal-input" readonly>
                                 <input type="text" id="name-input" class="add-input modal-input">
@@ -71,18 +79,17 @@
                                 <div class="container">
                                     <div class="tag-container">
                                         <input list="skills-dropdown" type="text" id="skills-input"
-                                            class="add-input modal-input" placeholder="Enter the Skills">
+                                            class="add-input modal-input" placeholder="Enter the Skills" />
+                                        <div id="skill-add">
+                                            <form action="">
+                                                <input type="checkbox" id="add-skill" />
+                                                <label for="add-skill"> ADD THE SKILL?</label><br>
+                                            </form>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div id="add-label-wrapper" class="label-wrapper">
-                                <label for="id-input" class="add-label modal-label">Employee Id:</label>
-                                <label for="name-input" class="add-label modal-label">Employee Name:</label>
-                                <label for="designation-input" class="add-label modal-label">Designation:</label>
-                                <label for="experience-input" class="add-label modal-label">Experience:</label>
-                                <label for="email-input" class="add-label modal-label">Email:</label>
-                                <label for="skills-input" class="add-label modal-label">Skills:</label>
-                            </div>
+
                         </form>
                     </div>
                     <div id="add-btn-container" class="btn-container">
@@ -99,7 +106,15 @@
                     <h2>Update Employee Details</h2>
                     <div id="update-label-container" class="container">
 
-                        <form action="#" id="update-form" class="form">
+                        <form action="#" id="update-form" class="form" autocomplete="off">
+                            <div id="update-label-wrapper" class="label-wrapper">
+                                <label for="id-input-u" class="update-label  modal-label">Employee Id:</label>
+                                <label for="name-input-u" class="update-label modal-label">Employee Name:</label>
+                                <label for="designation-input-u" class="update-label modal-label">Designation:</label>
+                                <label for="experience-input-u" class="update-label modal-label">Experience:</label>
+                                <label for="email-input-u" class="update-label modal-label">Email:</label>
+                                <label for="skills-input-u" class="update-label modal-label">Skills:</label>
+                            </div>
                             <div id="update-input-wrapper" class="input-wrapper">
                                 <input type="text" id="id-input-u" class="update-input modal-input" readonly>
                                 <input type="text" id="name-input-u" class="update-input modal-input">
@@ -108,18 +123,10 @@
                                 <input type="text" id="email-input-u" class="update-input modal-input">
                                 <div class="container">
                                     <div class="tag-container">
-                                        <input list="skills-dropdown" type="text" id="skills-input-u" class="add-input modal-input"
-                                            placeholder="Enter the Skills">
+                                        <input list="skills-dropdown" type="text" id="skills-input-u"
+                                            class="add-input modal-input" placeholder="Enter the Skills">
                                     </div>
                                 </div>
-                            </div>
-                            <div id="update-label-wrapper" class="label-wrapper">
-                                <label for="id-input-u" class="update-label  modal-label">Employee Id:</label>
-                                <label for="name-input-u" class="update-label modal-label">Employee Name:</label>
-                                <label for="designation-input-u" class="update-label modal-label">Designation:</label>
-                                <label for="experience-input-u" class="update-label modal-label">Experience:</label>
-                                <label for="email-input-u" class="update-label modal-label">Email:</label>
-                                <label for="skills-input-u" class="update-label modal-label">Skills:</label>
                             </div>
                         </form>
                     </div>

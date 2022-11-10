@@ -4,23 +4,23 @@
     "employee_name": "Nithin",
     "designation": "Lead Engineer",
     "experience": "7 years",
-    "email": "rachel@xyz",
-    "skills": ["1", "3"]
+    "email": "nithin@xyz.com",
+    "skills": ["1", "4"]
   },
   {
     "employee_id": 3,
     "employee_name": "Sneha",
     "designation": "Senior Dev",
     "experience": "5 years",
-    "email": "rachel@xyz",
-    "skills": ["1", "3","2"]
+    "email": "sneha@xyz.com",
+    "skills": ["2", "4"]
   },
   {
     "employee_id": 2,
     "employee_name": "Rachel",
     "designation": "Lead Engineer",
     "experience": "7 years",
-    "email": "rachel@xyz",
+    "email": "rachel@xyz.com",
     "skills": ["1", "3"]
   },
   {
@@ -28,16 +28,15 @@
     "employee_name": "Ajukrishnan",
     "designation": "Architect",
     "experience": "10 years",
-    "email": "rachel@xyz",
-    "skills": ["1", "3"]
+    "email": "aju@xyz.com",
+    "skills": ["2", "3"]
   },
   {
     "employee_id": 5,
     "employee_name": "Nishin",
     "designation": "Senior Architect",
     "experience": "15 years",
-    "email": "rachel@xyz",
-    "skills": ["1", "3"]
-  } 
-  
+    "email": "nishin@xyz.com",
+    "skills": ["1", "2", "3", "4"]
+  }
 ]
