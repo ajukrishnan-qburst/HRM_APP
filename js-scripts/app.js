@@ -58,53 +58,61 @@ skillDataList()
 // =============================== LISTING THE JSON DATA INTO TABLE =======================================================================
 function listTables() {
     const tableDataJson = JSON.parse(localStorage.getItem("employeeData"));
-    const skillsDataJson = JSON.parse(localStorage.getItem("skillsData"));
-    const parent = document.getElementById("table-body-container");
 
     tableDataJson.forEach((rowData) => {
-        let tableRow = document.createElement("tr");
-        let skillRow = document.createElement("td");
-        skillRow.setAttribute("class", "skillsBox");
-        let buttonRow = document.createElement("td");
-        let updateBtn = document.createElement("i");
-        let deleteBtn = document.createElement("i");
 
-        tableRow.innerHTML = `<td>${rowData.employee_id}</td>
-        <td>${rowData.employee_name}</td>
-        <td>${rowData.designation}</td>
-        <td>${rowData.email}</td>`;
-
-        rowData.skills.forEach((skillData) => {
-            let spanTag = document.createElement("span");
-            let length = rowData.skills.length;
-            if ((length - 1) == rowData.skills.indexOf(skillData)) {
-                skillsDataJson.forEach((data) => {
-                    skillData == data.skill_id && (spanTag.innerHTML = data.skill_name);
-                });
-            }
-            else {
-                skillsDataJson.forEach((data) => {
-                    skillData == data.skill_id && (spanTag.innerHTML = `${data.skill_name},`);
-                });
-            }
-            spanTag.setAttribute("class", "skillSpan");
-            skillRow.appendChild(spanTag);
-        });
-
-        updateBtn.setAttribute("class", "update-button fa-solid fa-pen-to-square");
-        updateBtn.setAttribute("data-id", `${rowData.employee_id}`);
-        deleteBtn.setAttribute("class", "delete-button fa-solid fa-trash");
-        deleteBtn.setAttribute("data-id", `${rowData.employee_id}`);
-
-        tableRow.appendChild(skillRow);
-        buttonRow.appendChild(updateBtn);
-        buttonRow.appendChild(deleteBtn);
-        tableRow.appendChild(buttonRow);
-        parent.appendChild(tableRow);
+        rowCreation(rowData)
         updateModalBox();
         deleteMsgBox();
 
     });
+}
+
+// =================================== ROW CREATION ======================================================================================
+function rowCreation(rowData) {
+    const skillsDataJson = JSON.parse(localStorage.getItem("skillsData"));
+    const parent = document.getElementById("table-body-container");
+
+    let tableRow = document.createElement("tr");
+    let skillRow = document.createElement("td");
+    skillRow.setAttribute("class", "skillsBox");
+    let buttonRow = document.createElement("td");
+    let updateBtn = document.createElement("i");
+    let deleteBtn = document.createElement("i");
+
+    tableRow.innerHTML = `<td>${rowData.employee_id}</td>
+        <td>${rowData.employee_name}</td>
+        <td>${rowData.designation}</td>
+        <td>${rowData.email}</td>`;
+
+    rowData.skills.forEach((skillData) => {
+        let spanTag = document.createElement("span");
+        let length = rowData.skills.length;
+        if ((length - 1) == rowData.skills.indexOf(skillData)) {
+            skillsDataJson.forEach((data) => {
+                skillData == data.skill_id && (spanTag.innerHTML = data.skill_name);
+            });
+        }
+        else {
+            skillsDataJson.forEach((data) => {
+                skillData == data.skill_id && (spanTag.innerHTML = `${data.skill_name},`);
+            });
+        }
+        spanTag.setAttribute("class", "skillSpan");
+        skillRow.appendChild(spanTag);
+    });
+
+    updateBtn.setAttribute("class", "update-button fa-solid fa-pen-to-square");
+    updateBtn.setAttribute("data-id", `${rowData.employee_id}`);
+    deleteBtn.setAttribute("class", "delete-button fa-solid fa-trash");
+    deleteBtn.setAttribute("data-id", `${rowData.employee_id}`);
+
+    tableRow.appendChild(skillRow);
+    buttonRow.appendChild(updateBtn);
+    buttonRow.appendChild(deleteBtn);
+    tableRow.appendChild(buttonRow);
+    parent.appendChild(tableRow);
+
 }
 
 // =============================== ADD MODAL BOX AND CONFIRMATION BOX FUNCTIONALITY ==================================================
@@ -257,7 +265,7 @@ function addEmployees(ev) {
 
         tableDataJson.push(employee);
         localStorage.setItem("employeeData", JSON.stringify(tableDataJson));
-        reloadTable();
+        rowCreation(employee);
         addForm.reset();
         modal.style.display = "none";
         successModal.style.display = "block";
