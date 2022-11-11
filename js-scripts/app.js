@@ -380,12 +380,23 @@ function deleteEmployee(id) {
                 const index = tableDataJson.indexOf(rowData)
                 tableDataJson.splice(index, 1);
                 localStorage.setItem("employeeData", JSON.stringify(tableDataJson));
-                reloadTable()
+                rowDeletion(index);
             }
         });
     })
 }
 
+
+function rowDeletion(index) {
+    const rows = document.querySelectorAll("#table-body-container tr")
+    let i = 0;
+    rows.forEach(row => {
+        i++
+        if (index == i - 1) {
+            row.remove()
+        }
+    })
+}
 // ========================== VIEW AND UPDATE EXISTING DATA OF AN EMPLOYEEE  ==========================================================
 function employeeDataDisplay(id) {
     let tableDataJson = JSON.parse(localStorage.getItem("employeeData"));
