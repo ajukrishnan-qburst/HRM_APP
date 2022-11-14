@@ -595,35 +595,20 @@ filterTable();
 
 // ========================================== VALIDATING THE ADDFORM INPUTS ==========================================================
 function formValidation(mailVal, nameVal) {
+    const regExpEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/g;
+    const regExpName = /\d+$/g;
 
-    let atSymbol = mailVal.indexOf("@");
-    let dot = mailVal.indexOf(".");
-    let nameVals = nameVal.match(/\d+/g);
-
-    if ((nameVal.length < 1) || (nameVal.startsWith(" "))) {
-        alert("Enter a valid name")
+    if (nameVal == "" || regExpName.test(nameVal)) {
+        window.alert("Please enter valid name.");
+        return false;
+    } 
+    if (mailVal == "" || !regExpEmail.test(mailVal)) {
+        window.alert("Please enter a valid e-mail address.");
         return false;
     }
-    else if (nameVals != null) {
-        alert("Enter a valid name with no numeric values")
-        return false;
-    }
-    else if (dot <= atSymbol + 2) {
-        alert("Enter valid email id");
-        return false;
-    }
-    else if (dot === mailVal.length - 1) {
-        alert("Enter valid email id");
-        return false;
-    }
-    else if (atSymbol < 1) {
-        alert("Enter valid email id");
-        return false;
-    }
-    else {
-        return true;
-    }
+    return true;
 }
+
 
 // ====================================== TABLE RELOAD ===============================================================================
 function reloadTable() {
