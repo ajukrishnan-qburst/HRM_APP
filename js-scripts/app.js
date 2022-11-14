@@ -144,6 +144,7 @@ function addModalBox() {
         let idCount = JSON.parse(localStorage.getItem("idCountJson"));
         idCount += 1
         localStorage.setItem("idCountJson", JSON.stringify(idCount));
+        sortEmployeeData();
     });
 
     modal.addEventListener("click", (event) => {
@@ -563,7 +564,7 @@ function sortById() {
 function sortByName() {
     let tableDataJson = JSON.parse(localStorage.getItem("employeeData"));
     tableDataJson = tableDataJson.sort((e1, e2) => {
-        return ((e1.employee_name.toLowerCase()).charCodeAt(0) - (e2.employee_name.toLowerCase()).charCodeAt(0));
+        return e1.employee_name.toLowerCase().localeCompare(e2.employee_name.toLowerCase());
     })
     localStorage.setItem("employeeData", JSON.stringify(tableDataJson));
     reloadTable()
