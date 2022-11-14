@@ -557,7 +557,6 @@ function sortById() {
         return (e1.employee_id - e2.employee_id);
     })
     localStorage.setItem("employeeData", JSON.stringify(tableDataJson));
-    let element = document.getElementById("table-body-container");
     reloadTable();
 }
 
@@ -575,7 +574,6 @@ function filterTable() {
     const searchInput = document.getElementById("filter-select")
     let skillSearch;
     searchInput.addEventListener("keyup", function (event) {
-        console.log(event.target.value)
         skillSearch = event.target.value;
         if (!(skillSearch.startsWith(" ")) && !(skillSearch === "")) {
             const rows = document.querySelectorAll("#table-body-container tr");
