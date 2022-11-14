@@ -598,11 +598,11 @@ function formValidation(mailVal, nameVal) {
     const regExpEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/g;
     const regExpName = /\d+$/g;
 
-    if (nameVal == "" || regExpName.test(nameVal)) {
+    if (nameVal == "" || nameVal.startsWith(" ") || regExpName.test(nameVal)) {
         window.alert("Please enter valid name.");
         return false;
-    } 
-    if (mailVal == "" || !regExpEmail.test(mailVal)) {
+    }
+    if (mailVal == "" || mailVal.startsWith(" ") || !regExpEmail.test(mailVal)) {
         window.alert("Please enter a valid e-mail address.");
         return false;
     }
