@@ -7,7 +7,6 @@ function initIdCount() {
         localStorage.setItem("idCountJson", JSON.stringify(idCount));
     }
 }
-
 // =============================== FETCHING DATA FROM employee_details.json FILE ======================================================
 const getTableData = () => {
     fetch('json-files/employee_details.json')
@@ -35,10 +34,12 @@ function initData() {
     if (!(localStorage.getItem("employeeData"))) {
         getTableData();
         getSkillsData();
+        listTables();
     }
     else {
         listTables();
         sortEmployeeData();
+        skillDataList()
     }
 }
 
@@ -53,7 +54,7 @@ function skillDataList() {
         skillList.appendChild(options)
     })
 }
-skillDataList()
+
 
 // =============================== LISTING THE JSON DATA INTO TABLE =======================================================================
 function listTables() {
