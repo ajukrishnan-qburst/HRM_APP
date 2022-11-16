@@ -563,12 +563,13 @@ h6 {
 --------------------------------------*/
 
 .btn {
+  
   background-color: gold;
   color: #000;
   border: 2px solid black;
   font-size: 16px;
   font-family: "pop-bold";
-  margin: 0 auto;
+  margin: 20px auto 10px auto;
   padding: 5px 20px;
 }
 
@@ -828,7 +829,7 @@ td {
   height: 100%;
   overflow: auto;
   background-color: rgb(0, 0, 0);
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.9);
 }
 
 
@@ -845,7 +846,7 @@ td {
   height: 100%;
   overflow: auto;
   background-color: rgb(0, 0, 0);
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.9);
 }
 
 /* --------------------------------CONFIRMATION BOX------------------------------------------- */
@@ -861,7 +862,7 @@ td {
   height: 100%;
   overflow: auto;
   background-color: rgb(0, 0, 0);
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.9);
 }
 
 .box-content {
@@ -894,7 +895,6 @@ td {
 }
 
 .fa-xmark:hover {
-  font-weight: 900;
   color: green;
 }
 
@@ -902,12 +902,10 @@ td {
   font-size: 50px;
   font-weight: 700;
   background-color: white;
-}
-
-.fa-check:hover {
-  font-weight: 900;
   color: red;
 }
+
+
 
 /* ------------------------------SUCCESS BOX---------------------------- */
 
@@ -922,7 +920,7 @@ td {
   height: 100%;
   overflow: auto;
   background-color: rgb(0, 0, 0);
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.9);
 }
 
 /* -------------------------------UPDATE BOX------------------------------------- */
@@ -937,7 +935,7 @@ td {
   height: 100%;
   overflow: auto;
   background-color: rgb(0, 0, 0);
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.9);
 }
 
 
