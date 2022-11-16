@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css-styles/style.css">
+        <script src="https://kit.fontawesome.com/bed260e471.js" crossorigin="anonymous"></script>
+        <title>HR Management</title>
+    </head>
+
+    <body id="body-html">
+        <header id="header-tab">
+            <h1>HR Management App</h1>
+        </header>
+        <main id="main-content">
+            <section id="all-buttons" class="buttons-container">
+                <div class="add-container">
+                    <button type="button" id="add-button" class="add buttons">Add <i
+                            class="fa-solid fa-plus"></i></button>
+                </div>
+                <div class="sort-filter-container">
+                    <form action="#" id="" autocomplete="off">
+                        <label for="sort-select" class="label">Sort By:</label>
+                        <select name="" id="sort-dropdown">
+                            <option value="1" selected="selected">Employee Id</option>
+                            <option value="2">Employee Name</option>
+                        </select>
+                        <label for="filter-select" class="label">Filter:</label>
+                        <input list="skills-dropdown" type="search" id="filter-select" autofocus>
+                        <datalist id="skills-dropdown" class="datalist">
+                        </datalist>
+                    </form>
+                </div>
+            </section>
+
+
+            <section id="employee-table-container">
+                <table id="data-table" class="table">
+                    <thead>
+                        <tr id="table-header">
+                            <th id="employee_id" class="table-header">Employee Id</th>
+                            <th id="employee_name" class="table-header">Employee Name</th>
+                            <th id="designation" class="table-header">Designation</th>
+                            <th id="email" class="table-header">Email</th>
+                            <th id="skills" class="table-header">Skills</th>
+                            <th id="actions" class="table-header">Actions</th>
+                        </tr>
+                    </thead>
+                    
+                    <tbody id="table-body-container">
+                    
+                    </tbody>
+                </table>
+            </section>
+
+
+            <section id="add-modal" class="modal">
+                <div class="modal-content">
+                    <span class="close-btn"><i class="fa-solid fa-circle-xmark"></i></span>
+                    <h2>Add Employee Details</h2>
+                    <div id="input-label-container " class="container">
+                        <form action="#" id="add-form" class="form" autocomplete="off">
+                            <div id="add-label-wrapper" class="label-wrapper">
+                                <label for="id-input" class="add-label modal-label">Employee Id:</label>
+                                <label for="name-input" class="add-label modal-label">Employee Name:</label>
+                                <label for="designation-input" class="add-label modal-label">Designation:</label>
+                                <label for="experience-input" class="add-label modal-label">Experience:</label>
+                                <label for="email-input" class="add-label modal-label">Email:</label>
+                                <label for="skills-input" class="add-label modal-label">Skills:</label>
+                            </div>
+                            <div id="add-input-wrapper" class="input-wrapper">
+                                <input type="text" id="id-input" class="add-input modal-input" readonly>
+                                <input type="text" id="name-input" class="add-input modal-input">
+                                <input type="text" id="designation-input" class="add-input modal-input">
+                                <input type="text" id="experience-input" class="add-input modal-input">
+                                <input type="text" id="email-input" class="add-input modal-input">
+                                <div class="container">
+                                    <div class="tag-container">
+                                        <input list="skills-dropdown" type="text" id="skills-input"
+                                            class="add-input modal-input" placeholder="Enter the Skills" />
+                                        <div id="skill-add">
+                                            <form action="">
+                                                <input type="checkbox" id="add-skill" />
+                                                <label for="add-skill"> ADD THE SKILL?</label><br>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                    <div id="add-btn-container" class="btn-container">
+                        <button type="button" id="submit-add-btn" class="btn">Submit</button>
+                    </div>
+                </div>
+
+            </section>
+
+
+            <section id="update-modal" class="modal">
+                <div class="modal-content">
+                    <span class="close-btn"><i class="fa-solid fa-circle-xmark"></i></span>
+                    <h2>Update Employee Details</h2>
+                    <div id="update-label-container" class="container">
+
+                        <form action="#" id="update-form" class="form" autocomplete="off">
+                            <div id="update-label-wrapper" class="label-wrapper">
+                                <label for="id-input-u" class="update-label  modal-label">Employee Id:</label>
+                                <label for="name-input-u" class="update-label modal-label">Employee Name:</label>
+                                <label for="designation-input-u" class="update-label modal-label">Designation:</label>
+                                <label for="experience-input-u" class="update-label modal-label">Experience:</label>
+                                <label for="email-input-u" class="update-label modal-label">Email:</label>
+                                <label for="skills-input-u" class="update-label modal-label">Skills:</label>
+                            </div>
+                            <div id="update-input-wrapper" class="input-wrapper">
+                                <input type="text" id="id-input-u" class="update-input modal-input" readonly>
+                                <input type="text" id="name-input-u" class="update-input modal-input">
+                                <input type="text" id="designation-input-u" class="update-input modal-input">
+                                <input type="text" id="experience-input-u" class="update-input modal-input">
+                                <input type="text" id="email-input-u" class="update-input modal-input">
+                                <div class="container">
+                                    <div class="tag-container">
+                                        <input list="skills-dropdown" type="text" id="skills-input-u"
+                                            class="add-input modal-input" placeholder="Enter the Skills">
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div id="update-btn-container" class="btn-container">
+                        <button type="button" id="submit-update-btn" onclick="storeUpdatedValue()" class="btn">Submit</button>
+                    </div>
+                </div>
+            </section>
+
+
+
+            <section id="confirmation-box">
+                <div class="box-content">
+                    <span class="close-btn"><i class="fa-solid fa-circle-xmark"></i></span>
+                    <div class="box-msg">
+                        <h3>Are you sure, you want to delete?</h3>
+                    </div>
+                    <div class="confirmation-btn">
+                        <button type="button" id="no-btn"><i class="fa-solid fa-xmark"></i></button>
+                        <button type="button" id="yes-btn"><i class="fa-solid fa-check"></i></button>
+                    </div>
+                </div>
+            </section>
+
+
+
+
+            <section id="success-box">
+                <div class="box-content">
+                    <span class="close-btn"><i class="fa-solid fa-circle-xmark"></i></span>
+                    <div class="box-msg">
+                        <h3>Employee Details Successfully Added</h3>
+                    </div>
+                </div>
+            </section>
+
+
+
+            <section id="update-box">
+                <div class="box-content">
+                    <span class="close-btn"><i class="fa-solid fa-circle-xmark"></i></span>
+                    <div class="box-msg">
+                        <h3>Employee Details Successfully Updated</h3>
+                    </div>
+                </div>
+            </section>
+
+
+
+        </main>
+        <script src="./js-scripts/app.js"></script>
+    </body>
+
+</html>
