@@ -351,7 +351,7 @@ function newSkillAdd(value) {
     let questionMark = document.getElementById("skill-add")
     let questionForm = document.querySelector("#skill-add input")
     let valueObj = {};
-    questionMark.style.display = "block"
+    questionMark.style.display = "inline-flex"
     questionMark.addEventListener("change", function () {
         const skillsDataJson = JSON.parse(localStorage.getItem("skillsData"));
 

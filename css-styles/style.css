@@ -992,7 +992,7 @@ td {
 
 #skill-add {
   width: 250px;
-  display: inline-flex;
+  display: none;
 }
 
 #skill-add input {
