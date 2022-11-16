@@ -566,10 +566,10 @@ h6 {
   background-color: gold;
   color: #000;
   border: 2px solid black;
-  font-size: 25px;
+  font-size: 16px;
   font-family: "pop-bold";
   margin: 0 auto;
-  padding: 10px 25px;
+  padding: 5px 20px;
 }
 
 .btn:hover {
@@ -589,34 +589,32 @@ h6 {
   text-decoration: none;
   cursor: pointer;
 }
-
 .form{
    display: flex;
-  flex-direction: row-reverse;
-  padding: 10px 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 15px 10px;
 }
 
-
-
 .input-wrapper {
-  display: grid;
+  display: inline-grid;
   padding: 10px 5px 0px 5px;
-  margin-top: 15px;
-
+  margin-top: 15px
+}
 
 .modal-label {
   padding: 20px 10px;
-  line-height: 25px;
+  line-height: 20px;
   cursor: pointer;
 }
 
 .modal-input {
-  width: 425px;
-  height: 50px;
+  width: 360px;
+  height: 40px;
   padding: 5px 20px;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
   line-height: 25px;
-  font-size: 20px;
+  font-size: 14px;
   font-family: "pop-normal";
   color: #000;
 }
@@ -626,13 +624,13 @@ h6 {
   margin: auto;
   padding: 20px 20px;
   border: 1px solid #000;
-  width: 50%;
-  border-radius: 25px;
+  width: 45%;
+  border-radius: 30px;
 }
 
 .modal-content h2 {
   font-family: "pop-xbold";
-  font-size: 50px;
+  font-size: 27px;
   color: #25d366;
   text-align: center;
 }
@@ -640,22 +638,21 @@ h6 {
 .btn-container {
   display: flex;
   align-items: center;
-  padding: 25px 25px;
+  padding: 0px 25px;
 }
 
 .modal-label {
   display: block;
   color: #000;
-  font-size: 25px;
+  font-size: 18px;
   font-family: "pop-bold";
-  margin-top: 7px;
+  margin-top: 8px;
 }
 
 /*-------------------------------------
         5. HEADER SECTION
 --------------------------------------*/
 body {
-
   background-color: #b1570b2e;
 }
 
@@ -686,20 +683,18 @@ body {
 }
 
 .add-container {
-  padding: 15px 15px;
+  padding: 30px 15px 15px 15px;
 }
 
 .add {
-
   background-color: #003366;
-  font-size: 25px;
+  font-size: 20px;
   padding: 10px 10px;
   color: #FFFF00;
   font-family: "pop-bold";
 }
 .add:hover{
   box-shadow: -1px 2px 5px 5px #FFFF00;
-
 }
 
 .sort-filter-container {
@@ -709,19 +704,20 @@ body {
 .sort-filter-container input {
   cursor: pointer;
   padding: 7px 8px;
-  /* border-radius: 25px; */
   color: #000;
   font-family: "pop-normal";
   width: 200px;
+  background-color: #003366;
+  color: #ffff00;
 }
 
 .sort-filter-container select {
   cursor: pointer;
   padding: 10px 5px;
-  /* border-radius: 25px; */
   color: #000;
   font-family: "pop-normal";
-
+  background-color: #003366;
+  color: #ffff00;
 }
 
 .label {
@@ -729,6 +725,7 @@ body {
   font-size: 25px;
   font-family: "pop-bold";
 }
+
 .datalist {
   cursor: pointer;
 }
@@ -781,18 +778,17 @@ table {
   border-right: 2px solid black;
 }
 
-.table tr:not(:first-child) {
+.table tr{
   text-align: center;
   background-color: #003366;
   color: #FFFF00;
+  font-family: "pop-normal";
+}
 
-
-.table tr:not(:first-child):hover {
+tbody tr:hover {
   background-color: white;
   color: #000;
-
   font-size: large;
-
 }
 
 td {
@@ -801,7 +797,7 @@ td {
 }
 
 .fa-trash {
-  font-size: 30px;
+  font-size: 25px;
   cursor: pointer;
 }
 
@@ -811,7 +807,7 @@ td {
 
 .fa-pen-to-square {
   padding-right: 25px;
-  font-size: 30px;
+  font-size: 25px;
   cursor: pointer;
 }
 
@@ -834,6 +830,7 @@ td {
   background-color: rgb(0, 0, 0);
   background-color: rgba(0, 0, 0, 0.7);
 }
+
 
 /* ------------------------------UPDATE MODAL BOX------------------------------------ */
 
@@ -872,13 +869,13 @@ td {
   margin: 100px auto;
   padding: 20px 20px;
   border: 1px solid #000;
-  width: 50%;
+  width: 35%;
   border-radius: 25px;
 }
 
 .box-msg h3 {
   font-family: "pop-xbold";
-  font-size: 45px;
+  font-size: 30px;
   text-align: center;
   color: #25d366;
 }
@@ -891,10 +888,9 @@ td {
 }
 
 .fa-xmark {
-  font-size: 70px;
+  font-size: 50px;
   font-weight: 700;
   background-color: white;
-
 }
 
 .fa-xmark:hover {
@@ -903,10 +899,9 @@ td {
 }
 
 .fa-check {
-  font-size: 70px;
+  font-size: 50px;
   font-weight: 700;
   background-color: white;
-
 }
 
 .fa-check:hover {
@@ -946,6 +941,8 @@ td {
 }
 
 
+
+/* ------------------------------MULTISELECT SKILLS BOX ------------------------------- */
 .container{
   overflow-y: scroll;
   overflow-x: hidden;
@@ -958,7 +955,7 @@ td {
 .tag-container {
  padding: 5px 5px;
   border: 1px solid black;
-  width: 425px;
+  width: 360px;
   margin: 5px 0;
   align-items: center;
   background:#f2f2f2;
@@ -993,9 +990,13 @@ td {
 
 .tag-container input{
   flex:1;
-  font-size:19px;
+  font-size:16px;
   padding:5px;
   outline: none;
   border: 0;
+  margin-bottom: 0px;
 } 
 
+#skill-add {
+  display: none;
+}
