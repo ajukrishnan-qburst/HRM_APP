@@ -991,5 +991,13 @@ td {
 } 
 
 #skill-add {
+  width: 250px;
+  display: inline-flex;
+}
+
+#skill-add input {
   display: none;
+}
+#skill-add label{
+  cursor: pointer;
 }
