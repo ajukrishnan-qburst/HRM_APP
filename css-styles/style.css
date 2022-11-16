@@ -592,7 +592,6 @@ h6 {
 }
 .form{
    display: flex;
-  flex-wrap: wrap;
   justify-content: center;
   padding: 15px 10px;
 }
@@ -600,17 +599,20 @@ h6 {
 .input-wrapper {
   display: inline-grid;
   padding: 10px 5px 0px 5px;
-  margin-top: 15px
+  margin-top: 15px;
+  max-width: 300px;
+  width: 100%;
 }
 
 .modal-label {
   padding: 20px 10px;
   line-height: 20px;
   cursor: pointer;
+  width: 105%;
 }
 
 .modal-input {
-  width: 360px;
+  width: 300px;
   height: 40px;
   padding: 5px 20px;
   margin-bottom: 25px;
@@ -941,19 +943,10 @@ td {
 
 
 /* ------------------------------MULTISELECT SKILLS BOX ------------------------------- */
-.container{
-  overflow-y: scroll;
-  overflow-x: hidden;
-}
-
-.container::-webkit-scrollbar {
-  display: none;
-}
-
 .tag-container {
  padding: 5px 5px;
   border: 1px solid black;
-  width: 360px;
+  width: 300px;
   margin: 5px 0;
   align-items: center;
   background:#f2f2f2;
@@ -993,6 +986,8 @@ td {
   outline: none;
   border: 0;
   margin-bottom: 0px;
+  width: 280px;
+  max-width: 100%;
 } 
 
 #skill-add {
