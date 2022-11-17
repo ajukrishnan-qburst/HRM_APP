@@ -841,7 +841,8 @@ td {
   display: none;
   position: fixed;
   z-index: 1;
-  padding-top: 50px;
+  padding-top: 15px;
+  padding-bottom: 15px;
   left: 0;
   top: 0;
   width: 100%;
