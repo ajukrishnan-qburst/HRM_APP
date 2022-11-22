@@ -563,7 +563,6 @@ h6 {
 --------------------------------------*/
 
 .btn {
-  
   background-color: gold;
   color: #000;
   border: 2px solid black;
@@ -590,8 +589,8 @@ h6 {
   text-decoration: none;
   cursor: pointer;
 }
-.form{
-   display: flex;
+.form {
+  display: flex;
   justify-content: center;
   padding: 15px 10px;
 }
@@ -693,11 +692,11 @@ body {
   background-color: #003366;
   font-size: 20px;
   padding: 10px 10px;
-  color: #FFFF00;
+  color: #ffff00;
   font-family: "pop-bold";
 }
-.add:hover{
-  box-shadow: -1px 2px 5px 5px #FFFF00;
+.add:hover {
+  box-shadow: -1px 2px 5px 5px #ffff00;
 }
 
 .sort-filter-container {
@@ -781,10 +780,10 @@ table {
   border-right: 2px solid black;
 }
 
-.table tr{
+.table tr {
   text-align: center;
   background-color: #003366;
-  color: #FFFF00;
+  color: #ffff00;
   font-family: "pop-normal";
 }
 
@@ -833,7 +832,6 @@ td {
   background-color: rgb(0, 0, 0);
   background-color: rgba(0, 0, 0, 0.9);
 }
-
 
 /* ------------------------------UPDATE MODAL BOX------------------------------------ */
 
@@ -908,8 +906,6 @@ td {
   color: red;
 }
 
-
-
 /* ------------------------------SUCCESS BOX---------------------------- */
 
 #success-box {
@@ -941,55 +937,50 @@ td {
   background-color: rgba(0, 0, 0, 0.9);
 }
 
-
-
 /* ------------------------------MULTISELECT SKILLS BOX ------------------------------- */
 .tag-container {
- padding: 5px 5px;
+  padding: 5px 5px;
   border: 1px solid black;
   width: 300px;
   margin: 5px 0;
   align-items: center;
-  background:#f2f2f2;
+  background: #f2f2f2;
   border-radius: 5px;
   display: flex;
   flex-wrap: wrap;
-  
 }
 
-.tag{
+.tag {
   border: 1px solid black;
   margin: 5px;
   align-items: center;
-  background:#f2f2f2;
+  background: #f2f2f2;
   border-radius: 5px;
   display: flex;
   cursor: pointer;
-
 }
 
-.tag span{
-    font-size:larger;
-    color: #000;
-    font-family: 700;
+.tag span {
+  font-size: larger;
+  color: #000;
+  font-family: 700;
 }
 
-.close
-{
+.close {
   font-size: medium;
-    margin: 5px 5px;
+  margin: 5px 5px;
 }
 
-.tag-container input{
-  flex:1;
-  font-size:16px;
-  padding:5px;
+.tag-container input {
+  flex: 1;
+  font-size: 16px;
+  padding: 5px;
   outline: none;
   border: 0;
   margin-bottom: 0px;
   width: 280px;
   max-width: 100%;
-} 
+}
 
 #skill-add {
   width: 250px;
@@ -999,6 +990,6 @@ td {
 #skill-add input {
   display: none;
 }
-#skill-add label{
+#skill-add label {
   cursor: pointer;
 }
