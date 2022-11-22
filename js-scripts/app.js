@@ -7,23 +7,25 @@ function initIdCount() {
         localStorage.setItem("idCountJson", JSON.stringify(idCount));
     }
 }
+
 // =============================== FETCHING DATA FROM employee_details.json FILE ======================================================
-const getTableData = () => {
-    fetch('json-files/employee_details.json')
+const getTableData = async () => {
+    await fetch('json-files/employee_details.json')
         .then(response => response.json())
-        .then(data => {
-            localStorage.setItem("employeeData", JSON.stringify(data));
-            sortEmployeeData()
+        .then((data) => {
+            localStorage.setItem("employeeData", JSON.stringify(data));                    
         });
+    sortEmployeeData();
+
 }
 
 // =============================== FETCHING DATA FROM skills.json FILE =================================================================
-const getSkillsData = () => {
-    fetch('json-files/skills.json')
+const getSkillsData = async () => {
+    await fetch('json-files/skills.json')
         .then(response => response.json())
         .then(data => {
             localStorage.setItem("skillsData", JSON.stringify(data));
-            skillDataList()
+            skillDataList();
         });
 }
 
@@ -32,14 +34,14 @@ initData();
 
 function initData() {
     if (!(localStorage.getItem("employeeData"))) {
-        getTableData();
         getSkillsData();
+        getTableData();
         listTables();
     }
     else {
         listTables();
         sortEmployeeData();
-        skillDataList()
+        skillDataList();
     }
 }
 
@@ -59,14 +61,14 @@ function skillDataList() {
 // =============================== LISTING THE JSON DATA INTO TABLE =======================================================================
 function listTables() {
     const tableDataJson = JSON.parse(localStorage.getItem("employeeData"));
+    if (tableDataJson) {
+        tableDataJson.forEach((rowData) => {
+            rowCreation(rowData)
+            updateModalBox();
+            deleteMsgBox();
 
-    tableDataJson.forEach((rowData) => {
-
-        rowCreation(rowData)
-        updateModalBox();
-        deleteMsgBox();
-
-    });
+        });
+    }
 }
 
 // =================================== ROW CREATION ======================================================================================
@@ -89,15 +91,17 @@ function rowCreation(rowData) {
     rowData.skills.forEach((skillData) => {
         let spanTag = document.createElement("span");
         let length = rowData.skills.length;
-        if ((length - 1) == rowData.skills.indexOf(skillData)) {
-            skillsDataJson.forEach((data) => {
-                skillData == data.skill_id && (spanTag.innerHTML = data.skill_name);
-            });
-        }
-        else {
-            skillsDataJson.forEach((data) => {
-                skillData == data.skill_id && (spanTag.innerHTML = `${data.skill_name},`);
-            });
+        if (skillsDataJson) {
+            if ((length - 1) == rowData.skills.indexOf(skillData)) {
+                skillsDataJson.forEach((data) => {
+                    skillData == data.skill_id && (spanTag.innerHTML = data.skill_name);
+                });
+            }
+            else {
+                skillsDataJson.forEach((data) => {
+                    skillData == data.skill_id && (spanTag.innerHTML = `${data.skill_name},`);
+                });
+            }
         }
         spanTag.setAttribute("class", "skillSpan");
         skillRow.appendChild(spanTag);
