@@ -8,6 +8,7 @@
         <script src="https://kit.fontawesome.com/bed260e471.js" crossorigin="anonymous"></script>
         <script defer src="./js-scripts/app.js"></script>
         <link rel="stylesheet" href="css-styles/style.css">
+        <link rel="icon" type="image/x-icon" href="./assets/images/favicon.png">
         <title>HR Management</title>
     </head>
 
@@ -29,8 +30,16 @@
                             <option value="2">Employee Name</option>
                         </select>
                         <label for="filter-select" class="label">Filter:</label>
-                        <input list="skills-dropdown" type="search" id="filter-select" autofocus>
+                        <input list="skills-dropdown" type="search" id="filter-select" placeholder="Enter Skill" autofocus>
                         <datalist id="skills-dropdown" class="datalist">
+                        </datalist>
+                        <datalist id="designation-dropdown" class="datalist">
+                            <option value="Junior Developer">Junior Developer</option>
+                            <option value="Developer">Developer</option>
+                            <option value="Senior Developer">Senior Developer</option>
+                            <option value="Lead Engineer">Lead Engineer</option>
+                            <option value="Architect">Architect</option>
+                            <option value="Senior Architect">Senior Architect</option>
                         </datalist>
                     </form>
                 </div>
@@ -64,17 +73,17 @@
                     <div id="input-label-container " class="container">
                         <form action="#" id="add-form" class="form" autocomplete="off">
                             <div id="add-label-wrapper" class="label-wrapper">
-                                <label for="id-input" class="add-label modal-label">Employee Id:</label>
-                                <label for="name-input" class="add-label modal-label">Employee Name:</label>
+                                <label for="id-input" class="add-label modal-label">Employee Id:<sup class="red_star">&#42;</sup></label>
+                                <label for="name-input" class="add-label modal-label">Employee Name:<sup class="red_star">&#42;</sup></label>
                                 <label for="designation-input" class="add-label modal-label">Designation:</label>
                                 <label for="experience-input" class="add-label modal-label">Experience:</label>
-                                <label for="email-input" class="add-label modal-label">Email:</label>
+                                <label for="email-input" class="add-label modal-label">Email:<sup class="red_star">&#42;</sup></label>
                                 <label for="skills-input" class="add-label modal-label">Skills:</label>
                             </div>
                             <div id="add-input-wrapper" class="input-wrapper">
                                 <input type="text" id="id-input" class="add-input modal-input" readonly>
                                 <input type="text" id="name-input" class="add-input modal-input">
-                                <input type="text" id="designation-input" class="add-input modal-input">
+                                <input type="text" list="designation-dropdown" id="designation-input" class="add-input modal-input">
                                 <input type="text" id="experience-input" class="add-input modal-input">
                                 <input type="text" id="email-input" class="add-input modal-input">
                                 <div class="container">
@@ -109,17 +118,17 @@
 
                         <form action="#" id="update-form" class="form" autocomplete="off">
                             <div id="update-label-wrapper" class="label-wrapper">
-                                <label for="id-input-u" class="update-label  modal-label">Employee Id:</label>
-                                <label for="name-input-u" class="update-label modal-label">Employee Name:</label>
+                                <label for="id-input-u" class="update-label  modal-label" >Employee Id:<sup class="red_star">&#42;</sup></label>
+                                <label for="name-input-u" class="update-label modal-label">Employee Name:<sup class="red_star">&#42;</sup></label>
                                 <label for="designation-input-u" class="update-label modal-label">Designation:</label>
                                 <label for="experience-input-u" class="update-label modal-label">Experience:</label>
-                                <label for="email-input-u" class="update-label modal-label">Email:</label>
+                                <label for="email-input-u" class="update-label modal-label">Email:<sup class="red_star">&#42;</sup></label>
                                 <label for="skills-input-u" class="update-label modal-label">Skills:</label>
                             </div>
                             <div id="update-input-wrapper" class="input-wrapper">
                                 <input type="text" id="id-input-u" class="update-input modal-input" readonly>
                                 <input type="text" id="name-input-u" class="update-input modal-input">
-                                <input type="text" id="designation-input-u" class="update-input modal-input">
+                                <input type="text" id="designation-input-u" list="designation-dropdown" class="update-input modal-input">
                                 <input type="text" id="experience-input-u" class="update-input modal-input">
                                 <input type="text" id="email-input-u" class="update-input modal-input">
                                 <div class="container">
@@ -132,8 +141,7 @@
                         </form>
                     </div>
                     <div id="update-btn-container" class="btn-container">
-                        <button type="button" id="submit-update-btn" onclick="storeUpdatedValue()"
-                            class="btn">Submit</button>
+                        <button type="button" id="submit-update-btn" onclick="storeUpdatedValue()" class="btn">Submit</button>
                     </div>
                 </div>
             </section>
