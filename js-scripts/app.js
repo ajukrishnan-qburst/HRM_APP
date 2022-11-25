@@ -1,9 +1,10 @@
 // localStorage.clear();
 // ================================== IDCOUNT INTIAL VALUE ASSIGNMENT ================================================================
-initIdCount();
+
 function initIdCount() {
     if (!(localStorage.getItem("idCountJson"))) {
-        let idCount = 6;
+        const tableDataJson = JSON.parse(localStorage.getItem("employeeData"));
+        let idCount = +(tableDataJson.length + 1) ;
         localStorage.setItem("idCountJson", JSON.stringify(idCount));
     }
 }
@@ -13,7 +14,8 @@ const getTableData = async () => {
     await fetch('json-files/employee_details.json')
         .then(response => response.json())
         .then((data) => {
-            localStorage.setItem("employeeData", JSON.stringify(data));                    
+            localStorage.setItem("employeeData", JSON.stringify(data));  
+            initIdCount();
         });
     sortEmployeeData();
 
@@ -80,10 +82,11 @@ function rowCreation(rowData) {
     let skillRow = document.createElement("td");
     skillRow.setAttribute("class", "skillsBox");
     let buttonRow = document.createElement("td");
+    buttonRow.setAttribute("class", "action-column")
     let updateBtn = document.createElement("i");
     let deleteBtn = document.createElement("i");
 
-    tableRow.innerHTML = `<td>${rowData.employee_id}</td>
+    tableRow.innerHTML = `<td class="id-column">${rowData.employee_id}</td>
         <td>${rowData.employee_name}</td>
         <td>${rowData.designation}</td>
         <td>${rowData.email}</td>`;
@@ -106,7 +109,6 @@ function rowCreation(rowData) {
         spanTag.setAttribute("class", "skillSpan");
         skillRow.appendChild(spanTag);
     });
-
     updateBtn.setAttribute("class", "update-button fa-solid fa-pen-to-square");
     updateBtn.setAttribute("data-id", `${rowData.employee_id}`);
     deleteBtn.setAttribute("class", "delete-button fa-solid fa-trash");

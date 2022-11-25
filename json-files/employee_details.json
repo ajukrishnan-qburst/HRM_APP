@@ -10,7 +10,7 @@
   {
     "employee_id": 3,
     "employee_name": "Sneha",
-    "designation": "Senior Dev",
+    "designation": "Senior Developer",
     "experience": "5 years",
     "email": "sneha@xyz.com",
     "skills": ["2", "4"]
@@ -38,5 +38,13 @@
     "experience": "15 years",
     "email": "nishin@xyz.com",
     "skills": ["1", "2", "3", "4"]
+  },
+  {
+    "employee_id": 6,
+    "employee_name": "Aromal",
+    "designation": "Senior Developer",
+    "experience": "7 years",
+    "email": "aromal@xyz.com",
+    "skills": ["2", "3"]
   }
 ]
