@@ -63,6 +63,9 @@
 
                     </tbody>
                 </table>
+                <div id="error-div">
+                    <h2>NO EMPLOYEE DETAILS FOUND</h2>
+                </div>
             </section>
 
 
@@ -84,7 +87,7 @@
                                 <input type="text" id="id-input" class="add-input modal-input" readonly>
                                 <input type="text" id="name-input" class="add-input modal-input">
                                 <input type="text" list="designation-dropdown" id="designation-input" class="add-input modal-input">
-                                <input type="text" id="experience-input" class="add-input modal-input">
+                                <input type="text" id="experience-input" class="add-input modal-input" placeholder="Number of Years">
                                 <input type="text" id="email-input" class="add-input modal-input">
                                 <div class="container">
                                     <div class="tag-container">
@@ -118,7 +121,7 @@
 
                         <form action="#" id="update-form" class="form" autocomplete="off">
                             <div id="update-label-wrapper" class="label-wrapper">
-                                <label for="id-input-u" class="update-label  modal-label" >Employee Id:<sup class="red_star">&#42;</sup></label>
+                                <label for="id-input-u" class="update-label  modal-label">Employee Id:<sup class="red_star">&#42;</sup></label>
                                 <label for="name-input-u" class="update-label modal-label">Employee Name:<sup class="red_star">&#42;</sup></label>
                                 <label for="designation-input-u" class="update-label modal-label">Designation:</label>
                                 <label for="experience-input-u" class="update-label modal-label">Experience:</label>
@@ -126,10 +129,10 @@
                                 <label for="skills-input-u" class="update-label modal-label">Skills:</label>
                             </div>
                             <div id="update-input-wrapper" class="input-wrapper">
-                                <input type="text" id="id-input-u" class="update-input modal-input" readonly>
+                                <input type="text" id="id-input-u" class="update-input modal-input"  readonly>
                                 <input type="text" id="name-input-u" class="update-input modal-input">
                                 <input type="text" id="designation-input-u" list="designation-dropdown" class="update-input modal-input">
-                                <input type="text" id="experience-input-u" class="update-input modal-input">
+                                <input type="text" id="experience-input-u" class="update-input modal-input" placeholder="Number of Years">
                                 <input type="text" id="email-input-u" class="update-input modal-input">
                                 <div class="container">
                                     <div class="tag-container">

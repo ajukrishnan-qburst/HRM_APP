@@ -1,44 +1,37 @@
-// localStorage.clear();
 // ================================== IDCOUNT INTIAL VALUE ASSIGNMENT ================================================================
 
 function initIdCount() {
     if (!(localStorage.getItem("idCountJson"))) {
         const tableDataJson = JSON.parse(localStorage.getItem("employeeData"));
-        let idCount = +(tableDataJson.length + 1) ;
+        const idArr = tableDataJson.map(emp => emp.employee_id);
+        const idCount = Math.max(...idArr) + 1;
         localStorage.setItem("idCountJson", JSON.stringify(idCount));
     }
 }
 
-// =============================== FETCHING DATA FROM employee_details.json FILE ======================================================
+// ============================== FETCHING DATA FROM employee_details.json FILE ======================================================
 const getTableData = async () => {
-    await fetch('json-files/employee_details.json')
-        .then(response => response.json())
-        .then((data) => {
-            localStorage.setItem("employeeData", JSON.stringify(data));  
-            initIdCount();
-        });
+    let response = await fetch('json-files/employee_details.json');
+    response = await response.json();
+    localStorage.setItem("employeeData", JSON.stringify(response));
+    initIdCount();
     sortEmployeeData();
-
 }
 
 // =============================== FETCHING DATA FROM skills.json FILE =================================================================
 const getSkillsData = async () => {
-    await fetch('json-files/skills.json')
-        .then(response => response.json())
-        .then(data => {
-            localStorage.setItem("skillsData", JSON.stringify(data));
-            skillDataList();
-        });
+    let response = await fetch('json-files/skills.json');
+    response = await response.json();
+    localStorage.setItem("skillsData", JSON.stringify(response));
+    skillDataList();
 }
 
 // ===================== CONDITION TO CHECK WHETHER THE LOCALSTORAGE IS EMPTY OR NOT =======================================================
-initData();
 
-function initData() {
+async function initData() {
     if (!(localStorage.getItem("employeeData"))) {
-        getSkillsData();
-        getTableData();
-        listTables();
+        await getSkillsData();
+        await getTableData();
     }
     else {
         listTables();
@@ -46,7 +39,7 @@ function initData() {
         skillDataList();
     }
 }
-
+initData();
 // =============================== CREATING OPTION TAG FROM THE SKILLS LIST FETCHED =====================================================
 function skillDataList() {
     const skillsDataJson = JSON.parse(localStorage.getItem("skillsData"));
@@ -207,18 +200,18 @@ function deleteMsgBox() {
     const yesBtn = document.getElementById("yes-btn");
     deleteBtn.forEach(item => {
         item.addEventListener("click", () => {
-            modal.style.display = "block";
             let id = item.getAttribute("data-id")
-            deleteEmployee(id);
+            deleteEmployee(id); 
+            modal.style.display = "block";
         });
     });
     closeBtn.addEventListener("click", () => {
-        modal.style.display = "none"
+        modal.style.display = "none";
 
     });
 
     noBtn.addEventListener("click", () => {
-        modal.style.display = "none"
+        modal.style.display = "none";       
     });
     yesBtn.addEventListener("click", () => {
         modal.style.display = "none"
@@ -241,6 +234,7 @@ function addEmployees(ev) {
     const tableDataJson = JSON.parse(localStorage.getItem("employeeData"));
     const skillsDataJson = JSON.parse(localStorage.getItem("skillsData"));
     const successModal = document.getElementById("success-box")
+    const errorDiv = document.getElementById("error-div");
     const modal = document.getElementById("add-modal")
     const mailVal = document.getElementById("email-input").value;
     const nameVal = document.getElementById("name-input").value;
@@ -250,7 +244,7 @@ function addEmployees(ev) {
         ev.preventDefault();
         let skillIdArr = [];
         let skillNameArr = [];
-        document.querySelectorAll(".tagSpan").forEach(item => {
+        modal.querySelectorAll(".tagSpan").forEach(item => {
             let value = item.getAttribute('data-id')
             skillNameArr.push(value)
         })
@@ -262,6 +256,7 @@ function addEmployees(ev) {
             })
 
         });
+
         let employee = {
             employee_id: document.getElementById("id-input").value,
             employee_name: document.getElementById("name-input").value,
@@ -270,13 +265,15 @@ function addEmployees(ev) {
             email: document.getElementById("email-input").value,
             skills: skillIdArr
         }
-
+        skillIdArr = [];
+        skillNameArr = [];
         tableDataJson.push(employee);
         localStorage.setItem("employeeData", JSON.stringify(tableDataJson));
         rowCreation(employee);
         addForm.reset();
         modal.style.display = "none";
         successModal.style.display = "block";
+        errorDiv.style.display = "none"
     }
 }
 
@@ -402,17 +399,18 @@ function deleteEmployee(id) {
     })
 }
 
-
 function rowDeletion(index) {
-    const rows = document.querySelectorAll("#table-body-container tr")
+    let rows = document.querySelectorAll("#table-body-container tr")
+    const errorDiv = document.getElementById("error-div");
     let i = 0;
     rows.forEach(row => {
         i++
-        if (index == i - 1) {
-            row.remove()
-        }
+        index == i - 1 && row.remove();
     })
+    rows = document.querySelectorAll("#table-body-container tr");
+    rows.length === 0 && (errorDiv.style.display = "block");
 }
+
 // ========================== VIEW AND UPDATE EXISTING DATA OF AN EMPLOYEEE  ==========================================================
 function employeeDataDisplay(id) {
     let tableDataJson = JSON.parse(localStorage.getItem("employeeData"));
@@ -442,7 +440,7 @@ function storeUpdatedValue() {
                 let updatedSkills = updateSkills();
                 rowData.employee_name = document.getElementById("name-input-u").value,
                     rowData.designation = document.getElementById("designation-input-u").value,
-                    rowData.experience = document.getElementById("experience-input-u").value,
+                    rowData.experience = document.getElementById("experience-input-u").value + "Years",
                     rowData.email = document.getElementById("email-input-u").value,
                     rowData.skills = updatedSkills;
             }
@@ -528,20 +526,20 @@ function skillsView(id) {
 function updateSkills() {
     const updateForm = document.getElementById("update-form")
     const skillsDataJson = JSON.parse(localStorage.getItem("skillsData"));
-    let skillIdArr = [];
-    let skillNameArr = [];
+    let skillIdArrUpdate = [];
+    let skillNameArrUpdate = [];
     updateForm.querySelectorAll(".tagSpan").forEach(item => {
         let value = item.getAttribute('data-id')
-        skillNameArr.push(value)
+        skillNameArrUpdate.push(value)
     })
     skillsDataJson.forEach(skill => {
-        skillNameArr.forEach(skills => {
+        skillNameArrUpdate.forEach(skills => {
             if (skills === skill.skill_name) {
-                skillIdArr.push(skill.skill_id)
+                skillIdArrUpdate.push(skill.skill_id)
             }
         })
     });
-    return (skillIdArr);
+    return (skillIdArrUpdate);
 }
 
 // ================================== SORTING THE TABLE BY ID AND NAME =================================================================
@@ -579,22 +577,36 @@ function sortByName() {
 // ============================================== FILTERING BY SKILLS =================================================================
 function filterTable() {
     const searchInput = document.getElementById("filter-select")
+    const errorDiv = document.getElementById("error-div");
     let skillSearch;
     searchInput.addEventListener("keyup", function (event) {
         skillSearch = event.target.value;
         if (!(skillSearch.startsWith(" ")) && !(skillSearch === "")) {
+            let rowCount = false;
             const rows = document.querySelectorAll("#table-body-container tr");
             rows.forEach(row => {
                 let isThere = false;
                 let spans = row.querySelectorAll(".skillSpan")
                 spans.forEach(span => {
-                    span.textContent.toLocaleLowerCase().startsWith(skillSearch.toLowerCase()) && (isThere = true)
+                    if (span.textContent.toLocaleLowerCase().startsWith(skillSearch.toLowerCase())) {
+                        isThere = true;
+                        errorDiv.style.display = "none"
+                    }
                 })
                 isThere ? row.style.display = "" : row.style.display = "none";
             });
+            rows.forEach(row => {
+                if (row.style.display === "") {
+                    rowCount = true;
+                }
+            });
+            if (!rowCount) {
+                errorDiv.style.display = "block"
+            }
         }
         else {
             reloadTable()
+            errorDiv.style.display = "none"
         }
     });
 }
