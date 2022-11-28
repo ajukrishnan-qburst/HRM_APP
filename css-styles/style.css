@@ -664,7 +664,7 @@ h6 {
     color: #25d366;
   }
 
-  
+
 /*-------------------------------------
         5. HEADER SECTION
 --------------------------------------*/
@@ -751,7 +751,7 @@ body {
 /* ---------------------TABLE----------------------- */
 #employee-table-container {
   padding: 15px 10px;
-  display: flex;
+  display: block;
   justify-content: center;
   max-width: 1200px;
   width: 100%;
@@ -794,6 +794,13 @@ table {
   padding: 5px 25px;
   border-left: 3px solid black;
   border-right: 2px solid black;
+}
+#table-body-container{
+overflow-y: scroll;
+}
+
+#table-body-container::-webkit-scrollbar{
+display: none;
 }
 
 tbody tr {
@@ -839,6 +846,18 @@ tbody tr:hover{
 
 .fa-pen-to-square:hover {
   color: green;
+}
+
+
+#error-div{
+border: 5px dashed red;
+color: #003366;
+display: none;
+font-size: 40px;
+margin: 50px auto;
+text-align: center;
+width: 750px;
+
 }
 
 /* --------------------ADD MODAL BOX--------------------------------------------- */
@@ -974,7 +993,7 @@ tbody tr:hover{
 }
 
 .tag {
-  border: 1px solid black;
+  border: 1px solid #25d362;
   margin: 5px;
   align-items: center;
   background: #f2f2f2;
