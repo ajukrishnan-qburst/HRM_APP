@@ -106,6 +106,7 @@ function rowCreation(rowData) {
     updateBtn.setAttribute("data-id", `${rowData.employee_id}`);
     deleteBtn.setAttribute("class", "delete-button fa-solid fa-trash");
     deleteBtn.setAttribute("data-id", `${rowData.employee_id}`);
+    deleteBtn.setAttribute("onclick", "deleteEmployee(this)")
 
     tableRow.appendChild(skillRow);
     buttonRow.appendChild(updateBtn);
@@ -198,21 +199,15 @@ function deleteMsgBox() {
     const closeBtn = modal.querySelector(".close-btn");
     const noBtn = document.getElementById("no-btn");
     const yesBtn = document.getElementById("yes-btn");
-    deleteBtn.forEach(item => {
-        item.addEventListener("click", () => {
-            let id = item.getAttribute("data-id")
-            deleteEmployee(id); 
-            modal.style.display = "block";
-        });
-    });
+
     closeBtn.addEventListener("click", () => {
         modal.style.display = "none";
-
     });
 
     noBtn.addEventListener("click", () => {
-        modal.style.display = "none";       
+        modal.style.display = "none";
     });
+
     yesBtn.addEventListener("click", () => {
         modal.style.display = "none"
     });
@@ -385,18 +380,23 @@ function newSkillAdd(value) {
 
 // ================================ EMPLOYEEE ROW DELEETION ============================================================================
 function deleteEmployee(id) {
-    let deleteBtn = document.getElementById("yes-btn");
-    deleteBtn.addEventListener("click", () => {
-        let tableDataJson = JSON.parse(localStorage.getItem("employeeData"));
-        tableDataJson.forEach(rowData => {
-            if (id == rowData.employee_id) {
-                const index = tableDataJson.indexOf(rowData)
-                tableDataJson.splice(index, 1);
-                localStorage.setItem("employeeData", JSON.stringify(tableDataJson));
-                rowDeletion(index);
-            }
-        });
-    })
+    const modal = document.getElementById("confirmation-box");
+    let idToDelete = id.getAttribute("data-id");
+    const deleteBtn = document.getElementById("yes-btn");
+    modal.style.display = "block";
+    deleteBtn.onclick = function () {removeEmp(idToDelete)};
+}
+
+function removeEmp(id) {
+    let tableDataJson = JSON.parse(localStorage.getItem("employeeData"));
+    tableDataJson.forEach(rowData => {
+        if (id == rowData.employee_id) {
+            const index = tableDataJson.indexOf(rowData)
+            tableDataJson.splice(index, 1);
+            localStorage.setItem("employeeData", JSON.stringify(tableDataJson));
+            rowDeletion(index);
+        }
+    });
 }
 
 function rowDeletion(index) {
@@ -409,6 +409,7 @@ function rowDeletion(index) {
     })
     rows = document.querySelectorAll("#table-body-container tr");
     rows.length === 0 && (errorDiv.style.display = "block");
+
 }
 
 // ========================== VIEW AND UPDATE EXISTING DATA OF AN EMPLOYEEE  ==========================================================
